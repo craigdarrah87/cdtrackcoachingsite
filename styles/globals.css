@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; background: #0b0b0b; }
+
+/* Pill style helper */
+.pill { @apply rounded-2xl px-4 py-2 bg-brand-black/80 text-white border border-white/10; }
+
+/* Fancy underlines */
+.underline-acc { 
+  background-image: linear-gradient(transparent 60%, rgba(255,42,42,0.35) 60%);
+}
