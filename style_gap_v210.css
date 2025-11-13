@@ -1,0 +1,173 @@
+@media (max-width: 480px){
+  #etc{ margin-top: 2px !important; padding-top: 0 !important; border-top: 0 !important; }
+  #etc > h1:first-child, #etc > h2:first-child, #etc > h3:first-child{ margin-top: 0 !important; padding-top: 0 !important; }
+  .card-photo:last-of-type, figure:last-of-type, .media:last-of-type, img:last-of-type{
+    margin-bottom: 2px !important; padding-bottom: 0 !important; border-bottom: 0 !important;
+  }
+}
+
+/* Mobile header font and single-line tuning */
+@media (max-width: 430px){
+  .main-nav a{ font-size:13.5px !important; }
+  .main-nav{ gap:10px !important; }
+}
+
+/* Tighten gap between last image and 'European Track Coaching' on mobile */
+@media (max-width: 430px){
+  #euro-coaching{ padding-top: 10px !important; margin-top: 0 !important; }
+  #euro-coaching .container{ padding-top: 0 !important; }
+}
+
+/* Desktop spacing: tighten gap between boxes and photo row on home */
+@media (min-width: 900px){
+  .grid.cards{ margin-bottom: 16px !important; }
+  .thumbs-3{ margin-top: 16px !important; }
+}
+
+
+/* Mobile header font and single-line tuning */
+@media (max-width: 430px){
+  .main-nav a{ font-size:13.5px !important; }
+  .main-nav{ gap:10px !important; }
+}
+
+/* Tighten gap between last image and 'European Track Coaching' on mobile */
+@media (max-width: 430px){
+  #euro-coaching{ padding-top: 10px !important; margin-top: 0 !important; }
+  #euro-coaching .container{ padding-top: 0 !important; }
+}
+
+/* Desktop spacing: tighten gap between boxes and photo row on home */
+@media (min-width: 900px){
+  .grid.cards{ margin-bottom: 16px !important; }
+  .thumbs-3{ margin-top: 16px !important; }
+}
+
+
+/* === CD Track Coaching v2.12 FINAL fixes — embedded (2025-11-12 12:47:07 UTC) === */
+
+/* Desktop: tighten gap between feature cards and first photo row */
+@media (min-width: 1024px){
+  .home .feature-cards + .photo-row,
+  .home .features + .gallery,
+  .home .feature-grid + .image-grid,
+  .home .features + .photos,
+  .feature-row + .photo-row,
+  .features + .photo-row {
+    margin-top: 24px !important;
+  }
+}
+
+/* Desktop: remove stray double rule on Why Us */
+.why hr,
+.why .section-divider,
+.why .divider,
+.why .rule {
+  display: none !important;
+  height: 0 !important;
+  border: 0 !important;
+}
+
+/* Contact page: Ignivio-style form */
+.contact form input,
+.contact form textarea,
+.contact .form input,
+.contact .form textarea,
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+  background:#111 !important;
+  color:#eee !important;
+  border:1px solid #2a2a2a !important;
+  border-radius:12px !important;
+  padding:14px 16px !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+form input::placeholder, form textarea::placeholder { color:#7a7a7a !important; }
+form button[type="submit"], .contact form button, .contact .form button.submit, .btn-submit {
+  background:#e64b3c !important;
+  color:#fff !important;
+  border:none !important;
+  border-radius:12px !important;
+  padding:14px 18px !important;
+  font-weight:600;
+  box-shadow:0 8px 24px rgba(230,75,60,.25) !important;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+form button[type="submit"]:hover,
+.contact form button:hover,
+.btn-submit:hover {
+  transform:translateY(-1px);
+  box-shadow:0 10px 30px rgba(230,75,60,.35) !important;
+}
+
+/* Mobile header single line + smaller nav */
+@media (max-width: 430px){
+  header nav a, .site-nav a, .nav a {
+    font-size: 12px !important;
+    letter-spacing: .2px !important;
+    padding: 6px 8px !important;
+  }
+  header .brand, .logo, .brand img {
+    max-height: 18px !important;
+  }
+}
+
+/* Mobile: tighten gap between any image and the next section heading.
+   This is the stubborn space above "European Track Coaching". */
+@media (max-width: 430px){
+  .content img, .card img, .section img, .gallery img {
+    margin-bottom: 10px !important;
+  }
+  img + h1, img + h2, img + h3, img + .section-title, img + .block-title {
+    margin-top: 10px !important;
+  }
+  /* Reduce vertical rhythm inside content blocks on mobile */
+  .content h2, .content .h2, .section h2 {
+    margin-top: 14px !important;
+  }
+  /* Safety net: if that heading has special classes/ids */
+  .european-track, .track-coaching, .euro-track, #european-track {
+    margin-top: 10px !important;
+  }
+}
+
+
+@media(max-width:600px){.euro-track-section{margin-top:0!important;padding-top:0!important;} }
+
+
+@media (max-width: 600px){
+  .euro-track-section{
+    margin-top:-24px !important;
+    padding-top:0 !important;
+  }
+  .euro-track-section .cta-row{
+    display:none;
+  }
+  .euro-track-section .cta-row-mobile{
+    display:flex;
+    justify-content:center;
+    margin-top:16px;
+  }
+}
+
+@media (min-width: 601px){
+  .euro-track-section .cta-row-mobile{
+    display:none;
+  }
+}
+
+
+/* tighter gap v4 */
+@media(max-width:600px){.euro-track-section{margin-top:-32px!important;padding-top:0!important;}}
+
+
+/* remove safety card bottom gap fully */
+@media(max-width:600px){
+  .section, .section .container{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+}

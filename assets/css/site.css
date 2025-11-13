@@ -1,0 +1,554 @@
+
+:root{--bg:#0b0b0c;--panel:#131315;--text:#e8e8ea;--muted:#b4b4b8;--accent:#e52921;--soft:#141416}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.55}
+img,video{display:block;max-width:100%}
+a{color:var(--text);text-decoration:none}
+.container{width:min(1200px,92%);margin:0 auto}
+.header{position:sticky;top:0;z-index:60;background:linear-gradient(0deg,transparent,rgba(0,0,0,.55));backdrop-filter:saturate(120%) blur(6px)}
+.nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+.brand img{height:34px;width:auto;filter:brightness(1.1)}
+.nav a{opacity:.85;font-weight:700}
+.nav a:hover{opacity:1}
+.book-btn{background:var(--accent);padding:8px 14px;border-radius:999px;color:white}
+.hero{position:relative;height:72vh;min-height:520px;overflow:hidden;border-bottom:1px solid #1b1b1d}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) contrast(1.15) brightness(.9)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55)), radial-gradient(1200px 500px at 50% 85%, rgba(229,41,33,.15), transparent 60%)}
+.hero .inner{position:relative;z-index:2;height:100%;display:grid;place-items:center;text-align:center;padding:0 16px}
+.kicker{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:#121214;border:1px solid #1f1f22;border-radius:999px;padding:6px 10px;margin-bottom:10px}
+.h1{font-family:'Poppins',system-ui,sans-serif;letter-spacing:.02em;font-weight:800;font-size: clamp(38px, 6vw, 76px);line-height:1.02;margin:0 0 10px}
+.hero p{max-width:780px;margin:10px auto 18px;color:var(--muted)}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:1px solid #2a2a2f;padding:10px 14px;border-radius:12px;background:#121214;color:#fff}
+.btn.primary{background:var(--accent);border-color:var(--accent)}
+.section{padding:56px 0}
+.section.alt{background:var(--soft);border-top:1px solid #1b1b1d;border-bottom:1px solid #1b1b1d}
+.grid{display:grid;gap:18px}
+.grid.cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid #1b1b1f;border-radius:14px;padding:18px}
+.h3{font-weight:800;margin:0 0 6px}
+.media-wrap{width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0f0f12;border:1px solid #1a1a1f}
+.media{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) contrast(1.1) brightness(.95)}
+.tiles{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tile{position:relative;overflow:hidden;border-radius:14px;background:#0f0f12;border:1px solid #1a1a1f}
+.tile .label{position:absolute;left:12px;bottom:10px;background:rgba(0,0,0,.55);border:1px solid #222;padding:6px 10px;border-radius:12px;font-weight:700}
+.footer{padding:40px 0;color:var(--muted);border-top:1px solid #1b1b1d}
+@media (max-width:760px){.hero{height:64vh;min-height:460px}.nav{gap:12px;flex-wrap:wrap}}
+
+
+    .main-nav{margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    @media (max-width: 760px){ .main-nav{gap:12px} }
+    .media-wrap{position:relative;overflow:hidden;border-radius:12px}
+    .media-wrap, .tile .media-wrap{aspect-ratio: 16 / 9; background:#0d0d10}
+    .media{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+    .card img, .gallery img{width:100%;height:100%;object-fit:cover;object-position:center}
+    body.circuits .media{filter:grayscale(100%) contrast(1.05)}
+    body.circuits .tile .media-wrap{background:#0f0f12}
+    .grid.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+    .tile{display:flex;flex-direction:column;gap:10px}
+    .tile .label{font-weight:700;opacity:.9}
+    .tile .media-wrap{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:16/9;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+    .tile .media{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) contrast(1.06) brightness(.9);transition:transform .35s ease, filter .35s ease, opacity .35s ease}
+    .tile:hover .media{transform:scale(1.03);filter:grayscale(80%) contrast(1.1) brightness(.98)}
+
+/* Gallery layouts for car imagery */
+.gallery.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:920px){.gallery.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.gallery.grid-3{grid-template-columns:1fr}}
+.gallery .media-wrap{aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.gallery .media{width:100%;height:100%;object-fit:cover;object-position:center}
+
+
+/* 3-up thumbnail row for Home */
+.thumbs-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.thumbs-3 .media-wrap{aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+@media (max-width:900px){.thumbs-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.thumbs-3{grid-template-columns:1fr}}
+
+
+/* About page refinements */
+.about-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+@media (max-width:980px){.about-hero{grid-template-columns:1fr}}
+.media-portrait{border-radius:18px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.media-portrait .media{width:100%;height:100%;object-fit:cover;object-position:center}
+.about-body{display:grid;gap:16px}
+.about-bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.about-bullets .card{background:#151518;border-radius:14px;padding:16px}
+@media (max-width:900px){.about-bullets{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.about-bullets{grid-template-columns:1fr}}
+.small{opacity:.8}
+
+
+/* About v2 */
+.about-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media (max-width:980px){.about-hero{grid-template-columns:1fr;gap:20px}}
+.media-landscape{border-radius:18px;overflow:hidden;aspect-ratio:16/9;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.media-landscape .media{width:100%;height:100%;object-fit:cover;object-position:center}
+.about-body{display:grid;gap:16px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.metric{background:#151518;border-radius:14px;padding:16px;text-align:center}
+.metric .num{font-weight:800;font-size:28px}
+.metric .cap{opacity:.75;font-size:14px}
+@media (max-width:900px){.metrics{grid-template-columns:1fr 1fr}}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+.callout{background:#151518;border-radius:14px;padding:16px;margin-top:12px}
+.small{opacity:.85}
+
+
+/* About deep content */
+.about-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media (max-width:980px){.about-hero{grid-template-columns:1fr}}
+.media-landscape{border-radius:18px;overflow:hidden;aspect-ratio:16/9;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.media-landscape .media{width:100%;height:100%;object-fit:cover;object-position:center}
+.about-body{display:grid;gap:18px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:900px){.metrics{grid-template-columns:1fr 1fr}}
+.metric{background:#151518;border-radius:14px;padding:16px;text-align:center}
+.metric .num{font-weight:800;font-size:28px}
+.metric .cap{opacity:.75;font-size:14px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:900px){.rules{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.rules{grid-template-columns:1fr}}
+.rule{background:#151518;border-radius:14px;padding:16px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:800px){.faq{grid-template-columns:1fr}}
+.faq .q{font-weight:700;margin-bottom:6px}
+.small{opacity:.85}
+
+
+/* About: full-height portrait */
+.about-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start}
+@media (max-width:980px){.about-hero{grid-template-columns:1fr}}
+.media-portrait-full{align-self:stretch;max-height:820px;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.media-portrait-full .media{width:100%;height:100%;object-fit:cover;object-position:center}
+.about-body{display:grid;gap:18px}
+.strong{font-weight:700}
+
+
+/* Inline alignment tweaks for About */
+.about-hero{align-items:start}
+.about-hero .h1{margin-top:0}
+.media-portrait-full{margin-top:0}
+
+
+/* Approach page thumbs row */
+.approach-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:var(--mediaRowGap)}
+.approach-thumbs .media-wrap{aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+@media (max-width:1000px){.approach-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:var(--mediaRowGap)}}
+@media (max-width:560px){.approach-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:var(--mediaRowGap)}}
+
+/* About: equal height columns */
+:root{--aboutH:820px}
+.about-hero{align-items:stretch}
+.about-body{height:var(--aboutH);display:flex;flex-direction:column;justify-content:flex-start;gap:18px;overflow:auto}
+.media-portrait-full{height:var(--aboutH)}
+@media (max-width:980px){
+  :root{--aboutH:auto}
+  .about-body{height:auto}
+  .media-portrait-full{height:auto}
+}
+/* Tighter rhythm */
+.about-body .h1{line-height:1.05;margin-bottom:8px}
+.about-body p{margin:0 0 10px 0}
+.metrics{margin-top:auto}
+
+
+/* Services: single row of four thumbnails under cards */
+.thumbs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
+.thumb{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.32);background:#141416}
+.thumb img{display:block;width:100%;height:190px;object-fit:cover;object-position:center}
+@media (max-width:1024px){.thumbs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.thumb img{height:170px}}
+@media (max-width:640px){.thumbs-grid{grid-template-columns:1fr}.thumb img{height:190px}}
+
+
+/* Contact page hero */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:stretch;margin-top:24px}
+@media(max-width: 900px){.contact-grid{grid-template-columns:1fr;gap:18px}}
+.contact-card.card{padding:24px}
+.contact-card .display{margin:8px 0 8px}
+.contact-card .lead{opacity:.9;margin-bottom:16px}
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.contact-photo{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.contact-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+/* Make photo match the card's height visually */
+@media(min-width: 901px){.contact-photo{min-height:100%;}}
+
+
+/* Contact — form + portrait side-by-side */
+.contact-form-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:stretch;margin:24px 0}
+@media(max-width: 900px){.contact-form-grid{grid-template-columns:1fr;gap:18px}}
+.contact-form-grid .card{height:100%}
+.contact-photo{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.contact-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+
+
+/* Contact form styling */
+.form{display:grid;gap:12px;margin-top:12px}
+input,textarea{width:100%;background:#0f0f10;border:1px solid #232326;border-radius:12px;padding:12px 14px;color:var(--text)}
+input::placeholder,textarea::placeholder{color:#8a8a8f}
+.btn{display:block;border-radius:12px;padding:12px 16px;text-align:left;background:#1b1b1d;border:1px solid #2a2a2e}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#fff;text-align:center}
+.btn + .btn{margin-top:10px}
+.card .btn-accent{margin-top:12px}
+.contact-form-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:stretch;margin:28px 0}
+@media(max-width: 900px){.contact-form-grid{grid-template-columns:1fr;gap:18px}}
+.contact-photo{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.contact-photo img{width:100%;height:100%;object-fit:cover}
+
+/* Powerhouse polish */
+html{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.h1,.display,h1{letter-spacing:-.02em}
+h2,h3{letter-spacing:-.01em}
+.card{backdrop-filter:saturate(120%) blur(2px)}
+a:hover{opacity:1}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+/* Mobile paddings */
+.container{width:min(1200px,92%)}
+@media(max-width: 600px){
+  .card{padding:16px}
+}
+
+
+
+.approach-media-row{margin-top:0 !important;}
+@media (max-width: 768px){.approach-media-row{margin-top:0 !important;}}
+
+
+
+section.approach .grid.cards {
+  margin-bottom: 1.75rem !important;
+}
+section.approach .approach-media-row{margin-top:0 !important;}
+
+/* approach image fill */
+.media-wrap img{width:100%;height:100%;object-fit:cover}
+
+
+/* === Approach Spacing Option B (1.0rem gap) === */
+section.approach .grid.cards {
+  margin-bottom: 1.0rem !important;
+}
+section.approach .approach-media-row{margin-top:0 !important;}
+
+/* spacing tokens */
+:root{--mediaRowGap:18px}
+
+/* Match header/footer font to body */
+
+.header, .header * , footer, footer * {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+
+/* === Hero CTA Button Alignment Fix === */
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.cta-row .btn,
+.cta-row .btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  min-height: 48px;
+  border-radius: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+.btn-accent {
+  background: #ff4b3d;
+  color: #fff;
+  border: none;
+}
+.btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+
+
+/* Modernize header nav font + style */
+.main-nav a{
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+
+
+/* Mobile layout polish (global) */
+@media (max-width: 600px){
+  .main-nav{display:block;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px 0}
+  .main-nav a{display:inline-block;margin-right:14px}
+  .section .container{padding-left:16px;padding-right:16px}
+  .grid.cards{grid-template-columns:1fr;gap:14px}
+  .card{padding:14px}
+  .thumbs-grid, .approach-thumbs{grid-template-columns:1fr !important}
+}
+
+
+
+/* Contact page red buttons full-width */
+.contact-card .btn-accent,
+.contact-card button.btn-accent{
+  width:100%;
+  background:#e34a3f;
+  color:#fff;
+  border:none;
+  padding:14px 18px;
+  border-radius:12px;
+  font-weight:600;
+}
+
+
+
+/* === MOBILE POLISH — v2.1 (full site) === */
+@media (max-width:600px){
+  .header .container{display:flex; align-items:center; gap:10px}
+  .header .main-nav{flex:1 1 auto; white-space:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0}
+  .header .main-nav a, .header .book-btn{display:inline-block; margin-right:12px}
+  .grid.cards{grid-template-columns:1fr; gap:12px}
+  .card{padding:12px; margin:0}
+  .card p:last-child{margin-bottom:0}
+  .card-photo{height:190px !important; margin-top:6px !important; filter:grayscale(1) contrast(1.04); border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.26)}
+  .hero + .section{margin-top:0 !important; padding-top:8px !important}
+  .section .container.grid{grid-template-columns:1fr !important; gap:12px !important}
+  .section .container.grid .media, .media-portrait-full{order:2}
+  footer.footer{padding:14px 0 !important; font-size:13px}
+}
+
+
+
+/* === MOBILE POLISH — v2.2 (single-line header + tighter handoff) === */
+@media (max-width:600px){
+  /* Header: ensure logo + nav + Book are on ONE line */
+  .header .container, header .container{
+    display:flex; align-items:center; gap:10px;
+  }
+  .header .logo, .header .brand, header .logo, header .brand{
+    flex:0 0 auto; display:flex; align-items:center; margin-right:8px;
+  }
+  .header .logo img{max-height:18px; height:18px}
+  .header nav, .header .main-nav, header nav{
+    flex:1 1 auto; display:flex; gap:12px; white-space:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0;
+  }
+  .header .book-btn{flex:0 0 auto}
+
+  /* Home: tighten gap between last card image strip and the European Track Coaching section */
+  .grid.cards{gap:10px; margin-bottom:8px !important}
+  .grid.cards .card{margin:0 !important; padding:12px}
+  .grid.cards .card:last-child{margin-bottom:0 !important}
+  .grid.cards + .section{margin-top:6px !important; padding-top:6px !important}
+
+  /* Keep injected images 190px */
+  .card-photo{height:190px !important; margin-top:6px !important}
+}
+
+
+
+/* === MOBILE POLISH — v2.3 (strict single-line header + tighter handoff) === */
+@media (max-width:600px){
+  .header .container, header .container{
+    display:flex !important; align-items:center !important; gap:10px !important;
+    flex-wrap:nowrap !important; justify-content:space-between !important;
+  }
+  .header .logo, .header .brand, header .logo, header .brand{
+    flex:0 0 auto !important; display:flex !important; align-items:center !important;
+    margin-right:8px !important;
+  }
+  .header .logo img{height:22px !important; max-height:22px !important}
+  .header nav, .header .main-nav, header nav{
+    flex:1 1 auto !important; min-width:0 !important; display:flex !important;
+    gap:12px !important; white-space:nowrap !important; overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important; padding:8px 0 !important;
+  }
+  .header .book-btn{flex:0 0 auto !important}
+  .grid.cards{gap:10px}
+  .grid.cards .card{margin:0 !important; padding:12px}
+  .grid + .section,
+  .cards + .section,
+  .thumbs-3 + .section,
+  .approach-thumbs + .section,
+  .media-portrait-full + .section,
+  .section:has(.grid.cards) + .section{
+    margin-top:6px !important; padding-top:6px !important;
+  }
+  .section h2:first-child, .section h1:first-child{ margin-top:6px !important }
+}
+
+
+
+/* === MOBILE POLISH — v2.4 === */
+@media (max-width:600px){
+  .mobile-one-line { background: transparent; }
+  .mobile-one-line .book-btn { margin-left: 6px; }
+}
+
+
+
+/* === MOBILE POLISH — v2.5 (single header only + tighter ETC spacing) === */
+@media (max-width:600px){
+  header > *:not(.mobile-one-line),
+  .header > *:not(.mobile-one-line){
+    display:none !important;
+  }
+  .mobile-one-line{ display:flex !important; }
+  /* Tighter handoff */
+  .card-photo{ margin-bottom:2px !important; }
+}
+
+
+
+/* === MOBILE POLISH — v2.6 (header font + zero-gap ETC) === */
+@media (max-width:600px){
+  .mobile-one-line,
+  .mobile-one-line a{
+    font-family: 'Futura', 'Futura PT', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+  }
+  .mobile-one-line a{
+    opacity: 0.92;
+  }
+}
+
+
+
+/* === MOBILE POLISH — v2.7 ZERO-GAP FOR ETC BLOCK === */
+@media (max-width:600px){
+  /* Nuke bottom space on any card/media immediately above the ETC section */
+  .card:last-of-type,
+  .section-inner:last-of-type,
+  .content:last-of-type,
+  .media:last-of-type,
+  figure:last-of-type,
+  img:last-of-type{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Reduce any container padding between blocks */
+  .section, .content-wrap, .container, .section-inner, main, article{
+    --tight-gap: 0px;
+  }
+
+  /* Prefer modern :has selector when available */
+  @supports selector(h2:has(+ *)){
+    /* When a heading is followed by anything, pull it tight to the thing above */
+    h1:has(+ *),
+    h2:has(+ *),
+    h3:has(+ *){
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    /* If an element precedes a heading, remove its bottom space */
+    *:has(+ h1),
+    *:has(+ h2),
+    *:has(+ h3){
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+
+
+/* === CD Track Coaching v2.12 FINAL fixes — embedded (2025-11-12 12:47:07 UTC) === */
+
+/* Desktop: tighten gap between feature cards and first photo row */
+@media (min-width: 1024px){
+  .home .feature-cards + .photo-row,
+  .home .features + .gallery,
+  .home .feature-grid + .image-grid,
+  .home .features + .photos,
+  .feature-row + .photo-row,
+  .features + .photo-row {
+    margin-top: 24px !important;
+  }
+}
+
+/* Desktop: remove stray double rule on Why Us */
+.why hr,
+.why .section-divider,
+.why .divider,
+.why .rule {
+  display: none !important;
+  height: 0 !important;
+  border: 0 !important;
+}
+
+/* Contact page: Ignivio-style form */
+.contact form input,
+.contact form textarea,
+.contact .form input,
+.contact .form textarea,
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+  background:#111 !important;
+  color:#eee !important;
+  border:1px solid #2a2a2a !important;
+  border-radius:12px !important;
+  padding:14px 16px !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+form input::placeholder, form textarea::placeholder { color:#7a7a7a !important; }
+form button[type="submit"], .contact form button, .contact .form button.submit, .btn-submit {
+  background:#e64b3c !important;
+  color:#fff !important;
+  border:none !important;
+  border-radius:12px !important;
+  padding:14px 18px !important;
+  font-weight:600;
+  box-shadow:0 8px 24px rgba(230,75,60,.25) !important;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+form button[type="submit"]:hover,
+.contact form button:hover,
+.btn-submit:hover {
+  transform:translateY(-1px);
+  box-shadow:0 10px 30px rgba(230,75,60,.35) !important;
+}
+
+/* Mobile header single line + smaller nav */
+@media (max-width: 430px){
+  header nav a, .site-nav a, .nav a {
+    font-size: 12px !important;
+    letter-spacing: .2px !important;
+    padding: 6px 8px !important;
+  }
+  header .brand, .logo, .brand img {
+    max-height: 18px !important;
+  }
+}
+
+/* Mobile: tighten gap between any image and the next section heading.
+   This is the stubborn space above "European Track Coaching". */
+@media (max-width: 430px){
+  .content img, .card img, .section img, .gallery img {
+    margin-bottom: 10px !important;
+  }
+  img + h1, img + h2, img + h3, img + .section-title, img + .block-title {
+    margin-top: 10px !important;
+  }
+  /* Reduce vertical rhythm inside content blocks on mobile */
+  .content h2, .content .h2, .section h2 {
+    margin-top: 14px !important;
+  }
+  /* Safety net: if that heading has special classes/ids */
+  .european-track, .track-coaching, .euro-track, #european-track {
+    margin-top: 10px !important;
+  }
+}
+
