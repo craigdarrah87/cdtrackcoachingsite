@@ -1233,3 +1233,16 @@ img.center-nudge{object-position:center 0%!important;}@media (max-width:600px){i
     font-size: clamp(30px, 5vw, 40px);
   }
 }
+
+/* MOBILE NAV + HERO H1 TWEAKS */
+@media (max-width: 768px){
+  .mobile-one-line,
+  .mobile-one-line a{
+    text-transform:none !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .h1{
+    font-size: clamp(24px, 4.2vw, 32px);
+  }
+}
