@@ -1223,3 +1223,13 @@ body.contact-page .contact-photo img{
 }
 img.center-nudge{object-position:center 0%!important;}@media (max-width:600px){img.calm-nudge{object-position:center 40%!important;}}
 @media(max-width:600px){img.calm-nudge{object-position:center 60%!important;}}
+
+/* MOBILE OVERRIDES FOR KICKER AND H1 */
+@media (max-width: 768px){
+  .kicker{
+    text-transform:none;
+  }
+  .h1{
+    font-size: clamp(30px, 5vw, 40px);
+  }
+}
